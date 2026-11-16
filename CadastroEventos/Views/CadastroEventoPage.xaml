@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CadastroEventos.Views.CadastroEventoPage"
+             Title="Cadastro de Eventos">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="8">
+
+            <Label Text="Nome do evento" FontAttributes="Bold" />
+            <Entry Placeholder="Ex.: Semana de Tecnologia" Text="{Binding Nome}" />
+
+            <Label Text="Data de início" FontAttributes="Bold" />
+            <DatePicker Date="{Binding DataInicio}" Format="dd/MM/yyyy" />
+
+            <Label Text="Data de término" FontAttributes="Bold" />
+            <DatePicker Date="{Binding DataTermino}" Format="dd/MM/yyyy" />
+
+            <Label Text="Número de participantes" FontAttributes="Bold" />
+            <Entry Placeholder="Ex.: 50" Keyboard="Numeric" Text="{Binding NumeroParticipantes}" />
+
+            <Label Text="Local do evento" FontAttributes="Bold" />
+            <Entry Placeholder="Ex.: Auditório da ETEC" Text="{Binding Local}" />
+
+            <Label Text="Custo por participante (R$)" FontAttributes="Bold" />
+            <Entry Placeholder="Ex.: 25,50" Keyboard="Numeric" Text="{Binding CustoPorParticipante}" />
+
+            <Border Stroke="Gray" StrokeThickness="1" Padding="12" Margin="0,12,0,0">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Cálculos automáticos" FontAttributes="Bold" />
+                    <Label Text="{Binding DuracaoTexto, StringFormat='Duração: {0}'}" />
+                    <Label Text="{Binding CustoTotalFormatado, StringFormat='Custo total: {0}'}" />
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Cadastrar evento" Margin="0,12,0,0" Clicked="OnCadastrarClicked" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
